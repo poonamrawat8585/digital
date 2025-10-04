@@ -1,0 +1,175 @@
+.cert-title {
+    font-size: 4rem;
+    font-weight: 300;
+    color: #bdbdbd;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.1em;
+    margin-top: 8rem;
+    line-height: 1.1;
+}
+
+.cert-title strong {
+    color: #222;
+    font-weight: 900;
+    display: block;
+    margin-top: 0.005em;
+    letter-spacing: 0.01em;
+}
+
+/* Carousel Styles */
+.certificates-carousel {
+    margin-top: 3.5rem;
+    margin-bottom: 3.5rem;
+}
+
+.carousel-item {
+    transition: opacity 0.8s ease-in-out;
+}
+
+.carousel-fade .carousel-item {
+    opacity: 0;
+}
+
+.carousel-fade .carousel-item.active {
+    opacity: 1;
+}
+
+.cert-row {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 3.5rem;
+    padding: 0 15px;
+}
+
+.cert-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07);
+    padding: 1.2rem 1.2rem 1rem 1.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 270px;
+    min-height: 370px;
+    transition: box-shadow 0.2s;
+}
+
+.cert-card img {
+    width: 350px;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 6px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.07);
+    background: #fafafa;
+}
+
+/* Custom Carousel Controls */
+.cert-pagination {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+    margin-top: 1.7rem;
+    margin-bottom: 1.7rem;
+    color: #222;
+    font-family: inherit;
+    justify-content: flex-end;
+}
+
+.cert-pagination .cert-page-num {
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.cert-pagination .cert-page-slash {
+    color: #bdbdbd;
+    margin: 0 0.6rem;
+}
+
+.cert-pagination .cert-page-total {
+    color: #bdbdbd;
+    font-size: 1.1rem;
+}
+
+.cert-pagination .cert-page-btn {
+    border: none;
+    background: #fafafa;
+    color: #bdbdbd;
+    font-size: 1.1rem;
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    transition: background 0.2s, color 0.2s;
+    cursor: pointer;
+    margin-left: 8px;
+    margin-right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+}
+
+.cert-pagination .cert-page-btn:not(:disabled):hover,
+.cert-pagination .cert-page-btn:not(:disabled):focus {
+    background: #e0e0e0;
+    color: #222;
+}
+
+.cert-pagination .cert-page-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Hide default carousel controls */
+.carousel-control-prev,
+.carousel-control-next {
+    display: none;
+}
+
+
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .cert-row {
+        gap: 2rem;
+    }
+
+    .cert-card {
+        min-width: 210px;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .cert-title {
+        font-size: 2rem;
+    }
+
+    .cert-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .cert-card {
+        min-width: 180px;
+        min-height: 220px;
+    }
+
+    footer .container {
+        flex-direction: column;
+        gap: 1.2rem;
+        text-align: left;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .cert-title {
+        font-size: 1.5rem;
+    }
+
+    .cert-card img {
+        width: 140px;
+        height: 180px;
+    }
+}

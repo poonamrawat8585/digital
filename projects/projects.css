@@ -1,0 +1,207 @@
+/* Main Title */
+.projects-title {
+    font-size: 64px;
+    font-weight: 300;
+    line-height: 64px;
+    letter-spacing: 0%;
+    color: #bdbdbd;
+    letter-spacing: 0.03em;
+    margin-bottom: 0.1em;
+    margin-top: 2rem;
+    padding: 100px 0 0 0;
+}
+
+.project-title-light {
+    color: #bdbdbd;
+    font-weight: 300;
+    margin-left: 40px;
+}
+
+.projects-title strong {
+    color: #222;
+    font-weight: 700;
+    display: block;
+    margin-top: 0.005em;
+    letter-spacing: 0.01em;
+}
+
+/* Carousel Container */
+.projects-carousel {
+    position: relative;
+    margin-bottom: 2.5rem;
+}
+
+/* Hide default carousel controls */
+.carousel-control-prev,
+.carousel-control-next {
+    display: none;
+}
+
+/* Carousel fade effect */
+.carousel-fade .carousel-item {
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out;
+}
+
+.carousel-fade .carousel-item.active {
+    opacity: 1;
+}
+
+/* Project Card - same styling */
+.project-row {
+    margin-bottom: 2.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+.project-img-col {
+    flex: 0 0 56%;
+    max-width: 56%;
+    min-width: 270px;
+    display: flex;
+    align-items: stretch;
+}
+
+.project-img {
+    width: 100%;
+    height: 435px;
+    object-fit: cover;
+    border-radius: 0;
+    display: block;
+}
+
+.project-desc-col {
+    flex: 1 1 44%;
+    max-width: 44%;
+    min-width: 220px;
+    background: #fbfbfb;
+    border-radius: 0;
+    padding: 2.2rem 2rem 2rem 2.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 16px;
+    line-height: 25px;
+}
+
+.project-desc-col h3 {
+    font-size: 40px;
+    font-weight: 300;
+    margin-bottom: 0.7rem;
+    color: #bdbdbd;
+    line-height: 100%;
+    letter-spacing: 0;
+}
+
+.project-desc-col p {
+    color: #000;
+    font-size: 16px;
+    margin-bottom: 1.5rem;
+    line-height: 25px;
+    margin-top: 20px;
+}
+
+.project-btn {
+    width: 222px;
+    height: 71px;
+    background: #fff;
+    color: #222;
+    border: 1px solid white;
+    border-radius: 0;
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 12px;
+    letter-spacing: 20%;
+    padding: 0.9rem 2.2rem;
+    letter-spacing: 0.04em;
+    transition: background 0.2s, color 0.2s;
+    font-weight: 400;
+    box-shadow: none;
+    margin-top: 70px;
+}
+
+.project-btn:hover {
+    background: #222;
+    color: #fff;
+    border-color: #222;
+}
+
+/* Custom Pagination - now functional */
+.pagination-custom {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 24px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    color: #bdbdbd;
+    font-family: inherit;
+}
+
+.pagination-custom span {
+    color: #bdbdbd;
+    font-size: 24px;
+}
+
+.pagination-custom .active-page {
+    color: #222;
+    font-weight: 400;
+    font-size: 24px;
+}
+
+.pagination-custom .btn {
+    width: 52.95px;
+    height: 53px;
+    border: 1px solid #e0e0e0;
+    border-radius: 0;
+    background: #fff;
+    color: #bdbdbd;
+    font-size: 24px;
+    padding: 0.2rem 1rem;
+    margin-left: 6px;
+    margin-right: 6px;
+    cursor: pointer;
+}
+
+.pagination-custom .btn:hover:not(:disabled) {
+    background: #222;
+    color: #fff;
+}
+
+.pagination-custom .btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+
+
+/* Responsive */
+@media (max-width: 991.98px) {
+    .project-row {
+        flex-direction: column;
+    }
+
+    .project-img-col,
+    .project-desc-col {
+        max-width: 100%;
+    }
+
+    .project-img {
+        height: 180px;
+    }
+
+    .project-desc-col {
+        padding: 1.5rem 1rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .project-img {
+        height: 120px;
+    }
+
+    .project-desc-col {
+        padding: 1rem 0.6rem;
+    }
+}
