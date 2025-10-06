@@ -1,11 +1,10 @@
-/* Main Title */
+/* Main Title - Base Desktop/Large */
 .projects-title {
     font-size: 64px;
     font-weight: 300;
     line-height: 64px;
-    letter-spacing: 0%;
-    color: #bdbdbd;
     letter-spacing: 0.03em;
+    color: #bdbdbd;
     margin-bottom: 0.1em;
     margin-top: 2rem;
     padding: 100px 0 0 0;
@@ -47,7 +46,7 @@
     opacity: 1;
 }
 
-/* Project Card - same styling */
+/* Project Card - Base Desktop/Large */
 .project-row {
     margin-bottom: 2.5rem;
     display: flex;
@@ -58,7 +57,6 @@
 .project-img-col {
     flex: 0 0 56%;
     max-width: 56%;
-    min-width: 270px;
     display: flex;
     align-items: stretch;
 }
@@ -74,7 +72,6 @@
 .project-desc-col {
     flex: 1 1 44%;
     max-width: 44%;
-    min-width: 220px;
     background: #fbfbfb;
     border-radius: 0;
     padding: 2.2rem 2rem 2rem 2.2rem;
@@ -112,9 +109,8 @@
     text-transform: uppercase;
     font-size: 12px;
     line-height: 12px;
-    letter-spacing: 20%;
-    padding: 0.9rem 2.2rem;
     letter-spacing: 0.04em;
+    padding: 0.9rem 2.2rem;
     transition: background 0.2s, color 0.2s;
     font-weight: 400;
     box-shadow: none;
@@ -127,7 +123,7 @@
     border-color: #222;
 }
 
-/* Custom Pagination - now functional */
+/* Custom Pagination - Base Desktop/Large */
 .pagination-custom {
     display: flex;
     align-items: center;
@@ -174,19 +170,51 @@
     cursor: not-allowed;
 }
 
+/* === Responsive Styles === */
 
 
-/* Responsive */
+/* Tablet & Large Mobile (Max 991.98px) */
 @media (max-width: 991.98px) {
+
+    /* Change layout from side-by-side to stacked */
     .project-row {
         flex-direction: column;
+        margin-bottom: 1.5rem;
     }
 
     .project-img-col,
     .project-desc-col {
         max-width: 100%;
+        flex-basis: 100%;
+        min-width: unset;
     }
 
+    .project-img {
+        height: 250px;
+    }
+
+    .project-desc-col {
+        padding: 1.8rem 1.2rem;
+    }
+
+    /* Adjust main title for tablets */
+    .projects-title {
+        font-size: 7vw;
+        padding: 60px 20px 0 20px;
+    }
+
+    .project-title-light {
+        margin-left: 0;
+        text-align: center;
+    }
+
+    .project-desc-col h3 {
+        font-size: 5vw;
+    }
+}
+
+/* Medium Mobile (Max 767.98px) */
+@media (max-width: 767.98px) {
     .project-img {
         height: 180px;
     }
@@ -194,14 +222,88 @@
     .project-desc-col {
         padding: 1.5rem 1rem;
     }
+
+    .project-desc-col h3 {
+        font-size: 30px;
+    }
+
+    /* Pagination Adjustments */
+    .pagination-custom {
+        justify-content: center;
+    }
 }
 
-@media (max-width: 767.98px) {
+
+/* === Small Mobile Specific (Max 480px, including 320px) === */
+@media (max-width: 480px) {
+
+    /* Main Title Scaling */
+    .projects-title {
+        font-size: 11vw;
+        line-height: 1.1;
+        padding: 40px 5px 0 5px;
+        text-align: center;
+    }
+
+    .project-title-light {
+        margin-left: 0;
+        text-align: center;
+        display: block;
+    }
+
+    .projects-title strong {
+        text-align: center;
+    }
+
+    /* Project Card Scaling */
     .project-img {
-        height: 120px;
+        height: 140px;
     }
 
     .project-desc-col {
         padding: 1rem 0.6rem;
+    }
+
+    .project-desc-col h3 {
+        font-size: 8vw;
+        margin-bottom: 0.5rem;
+        line-height: 1.2;
+    }
+
+    .project-desc-col p {
+        font-size: 15px;
+        line-height: 22px;
+        margin-top: 10px;
+        margin-bottom: 1rem;
+    }
+
+    /* Button Scaling and Adjustments */
+    .project-btn {
+        width: 100%;
+        max-width: 200px;
+        height: 45px;
+        padding: 0.6rem 1rem;
+        margin-top: 15px;
+        font-size: 10px;
+    }
+
+    /* Pagination Adjustments */
+    .pagination-custom {
+        gap: 0.2rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .pagination-custom .btn {
+        width: 38px;
+        height: 38px;
+        font-size: 16px;
+        margin-left: 2px;
+        margin-right: 2px;
+    }
+
+    .pagination-custom span,
+    .pagination-custom .active-page {
+        font-size: 16px;
     }
 }
