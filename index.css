@@ -1,12 +1,21 @@
+/* GLOBAL FIX: This forcefully hides any horizontal overflow across all devices */
+html,
+body {
+    overflow-x: hidden !important;
+    width: 100%;
+    font-size: 16px;
+}
+
 /* Hero Section */
 .hero-section {
     background: white;
     padding: 80px 0;
 }
 
+/* Text Scaling: Fluid sizes based on clamp() */
 .project-title {
     color: #bdbdbd;
-    font-size: 64px;
+    font-size: clamp(1.75rem, 5vw, 64px);
     font-weight: 300;
     margin-bottom: 0;
     letter-spacing: 2px;
@@ -15,7 +24,7 @@
 
 .project-name {
     color: #222;
-    font-size: 64px;
+    font-size: clamp(2.5rem, 8vw, 64px);
     font-weight: 700;
     margin-bottom: 40px;
     letter-spacing: 20%;
@@ -56,14 +65,11 @@
 }
 
 .custom-pagination {
-    font-size: 24px;
-    ;
+    font-size: clamp(1rem, 3vw, 24px);
     color: gray;
     letter-spacing: 0;
-    user-select: none;
     margin-bottom: 1.5em;
-    line-height: 24px;
-
+    line-height: 1.5em;
 }
 
 .custom-pagination .current {
@@ -83,22 +89,27 @@
 }
 
 .carousel-inner {
-    width: 770px;
-    height: 829px;
+    /* Image Scaling: Fluid container for carousel images */
+    width: 100%;
+    max-width: 770px;
+    height: auto;
+    aspect-ratio: 770 / 829;
     position: relative;
     margin: 0 auto;
     background: #fff;
-
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 .building-image {
-    width: 770px;
-    height: 829px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     border-radius: 0;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
     background: #f7f7f7;
     display: block;
+    box-sizing: border-box;
 }
 
 /* Hide Bootstrap's default controls */
@@ -108,15 +119,16 @@
     display: none !important;
 }
 
-/* Button on carousel image */
+/* CAROUSEL BUTTON FIX FOR ALL SCREENS                        */
+
 .carousel-btn-on-image {
-    position: absolute;
-    width: 221.81px;
-    height: 71px;
+    position: sticky;
+    width: clamp(150px, 30vw, 221.81px);
+    height: clamp(60px, 8vw, 71px);
     left: 0;
     bottom: 0;
     padding: 12px 28px 12px 18px;
-    font-size: 1.05rem;
+    font-size: clamp(0.9rem, 2vw, 1.05rem);
     background: #fff;
     color: #222;
     border: none;
@@ -126,15 +138,16 @@
     cursor: pointer;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
     transition: background 0.2s, color 0.2s, border 0.2s;
-    z-index: 2;
-    opacity: 2;
+    z-index: 10;
+    opacity: 1;
 }
 
 .carousel-btn-on-image:hover {
     background: #f5f5f5;
     color: #111;
-    opacity: 2;
+    opacity: 1;
 }
+
 
 /* About Section */
 .about-section {
@@ -143,16 +156,16 @@
 
 .about-title {
     color: gray;
-    font-size: 64px;
+    font-size: clamp(2rem, 5vw, 64px);
     font-weight: 300;
     margin-bottom: 5px;
-    line-height: 64px;
+    line-height: 1.2em;
 }
 
 .about-text {
     color: #000000;
     line-height: 25px;
-    font-size: 16px;
+    font-size: clamp(0.875rem, 2.5vw, 16px);
     margin-bottom: 30px;
 }
 
@@ -161,7 +174,9 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     gap: 10px;
-    height: 300px;
+    height: auto;
+    aspect-ratio: 300 / 300;
+    max-height: 300px;
 }
 
 .about-img {
@@ -183,7 +198,7 @@
 
 .tasks-title {
     color: gray;
-    font-size: 64px;
+    font-size: clamp(2rem, 5vw, 64px);
     font-weight: 300;
     margin-bottom: 50px;
     letter-spacing: 0%;
@@ -198,7 +213,7 @@
 .task-item {
     font-weight: 400;
     color: #333333;
-    font-size: 22px;
+    font-size: clamp(1rem, 3vw, 22px);
     background: none;
     border-radius: 8px;
     position: relative;
@@ -208,7 +223,8 @@
     display: flex;
     align-items: flex-start;
     min-height: 120px;
-
+    overflow: hidden;
+    word-break: break-word;
 }
 
 .task-item::before {
@@ -216,7 +232,7 @@
     position: absolute;
     left: 0;
     top: 0;
-    font-size: 200px;
+    font-size: clamp(3rem, 15vw, 200px);
     font-weight: 900;
     color: #ededed;
     z-index: 0;
@@ -227,12 +243,13 @@
 
 .task-item p {
     color: #333333;
-    font-size: 22px;
+    font-size: clamp(1rem, 3vw, 22px);
     line-height: 36px;
     margin: 0;
     position: relative;
     z-index: 1;
     font-weight: 400;
+    word-break: break-word;
 }
 
 .task-arrow {
@@ -250,12 +267,12 @@
 }
 
 .projects-title {
-    font-size: 64px;
+    font-size: clamp(2rem, 5vw, 64px);
     color: gray;
     font-weight: 300;
     margin-bottom: 2.5rem;
     letter-spacing: 0%;
-    line-height: 64px;
+    line-height: 1.2em;
 }
 
 .project-card {
@@ -265,9 +282,13 @@
     overflow: hidden;
     background: #f7f7f7;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
-    height: 340px;
+    height: auto;
+    aspect-ratio: 340 / 340;
+    max-height: 340px;
     display: flex;
     align-items: stretch;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .project-img {
@@ -292,18 +313,18 @@
 }
 
 .project-overlay h5 {
-    font-size: 64px;
+    font-size: clamp(2rem, 5vw, 64px);
     font-weight: 700;
     margin: 0;
-    line-height: 64px;
+    line-height: 1.2em;
     letter-spacing: 0%;
+    word-break: break-word;
 }
 
 .view-all-projects {
     display: flex;
     justify-content: flex-end;
     margin-top: 20px;
-
 }
 
 .btn-view-all {
@@ -311,9 +332,9 @@
     color: #fff;
     border: none;
     border-radius: 0;
-    font-size: 12px;
+    font-size: clamp(0.6rem, 2vw, 12px);
     line-height: 12px;
-    letter-spacing: 20%;
+    letter-spacing: 0.2em;
     padding: 0.8em 2.5em;
     text-transform: uppercase;
     font-weight: 400;
@@ -325,172 +346,102 @@
     color: #fff;
 }
 
-/* Contact Section */
+/* Contact Section (Footer structure) */
 .contact-section {
-  padding: 40px 0 0 0;
-  margin-bottom: 0;
+    padding: 40px 0 0 0;
+    margin-bottom: 0;
 }
 
 .contact-heading {
-  font-size: 64px;
-  font-weight: 300;
-  color: #bdbdbd;
-  margin-bottom: 32px;
-  line-height: 64px;
-  letter-spacing: 0;
+    font-size: clamp(2rem, 5vw, 64px);
+    font-weight: 300;
+    color: #bdbdbd;
+    margin-bottom: 32px;
+    line-height: 1.2em;
+    letter-spacing: 0;
 }
 
 .contact-form {
-  max-width: 440px;
-  margin-bottom: 0;
+    max-width: 440px;
+    margin-bottom: 0;
 }
 
 .contact-form input,
 .contact-form textarea {
-  background: #f5f5f5;
-  border: none;
-  border-radius: 0;
-  font-size: 1.08rem;
-  color: #222;
-  margin-bottom: 0;
-  padding: 16px 18px;
-  width: 100%;
-  resize: none;
-  box-shadow: none;
-  outline: none;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  background: #f5f5f5;
-  outline: none;
-  box-shadow: none;
+    background: #f5f5f5;
+    border: none;
+    border-radius: 0;
+    font-size: clamp(0.9rem, 2.5vw, 1.08rem);
+    color: #222;
+    margin-bottom: 0;
+    padding: 16px 18px;
+    width: 100%;
+    resize: none;
+    box-shadow: none;
+    outline: none;
 }
 
 .contact-form textarea {
-  min-height: 90px;
-  max-height: 200px;
+    min-height: 90px;
+    max-height: 200px;
 }
 
 .contact-form .form-check {
-  display: flex;
-  align-items: flex-start;
-  min-height: 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    min-height: 1.5rem;
 }
 
-.contact-form .form-check-input {
-  margin-left: 0;
-  margin-top: 0.2em;
-  accent-color: #222;
-  width: 1.2em;
-  height: 1.2em;
-}
-
-.contact-form .form-check-label {
-  font-size: 0.97rem;
-  color: #222;
-  margin-left: 0.5em;
-  font-weight: 400;
-  padding-top: 0.1em;
+.form-check-input[type=checkbox] {
+    height: 20px;
+    width: 10px;
+    padding: 20px;
+    margin: 0px;
+    margin-right: 20px;
 }
 
 .policy-text {
-  font-size: 14px;
-  color: #222;
-  margin: 0 0 24px 0;
+    font-size: clamp(0.75rem, 2vw, 14px);
+    color: #222;
+    margin: 0 0 24px 0;
 }
 
 .contact-form .btn-submit {
-  background: #222;
-  color: #fff;
-  border: none;
-  border-radius: 0;
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 12px;
-  letter-spacing: 0.2em;
-  padding: 24px 40px;
-  text-transform: uppercase;
-  margin-top: 12px;
-  transition: background 0.2s;
-}
-
-.contact-form .btn-submit:hover {
-  background: #444;
-  color: #fff;
+    background: #222;
+    color: #fff;
+    border: none;
+    border-radius: 0;
+    font-size: clamp(0.6rem, 2vw, 12px);
+    font-weight: 400;
+    line-height: 12px;
+    letter-spacing: 0.2em;
+    padding: 24px 40px;
+    text-transform: uppercase;
+    margin-top: 12px;
+    transition: background 0.2s;
 }
 
 .contact-image {
-  width: 100%;
-  max-width: 749px;
-  height: 369px;
-  object-fit: cover;
-  border-radius: 0;
-  display: block;
+    width: 100%;
+    max-width: 749px;
+    height: auto;
+    aspect-ratio: 749 / 369;
+    max-height: 369px;
+    object-fit: cover;
+    border-radius: 0;
+    display: block;
+
 }
 
-/* Responsive Design */
-@media (max-width: 900px) {
-    .hero-section {
-        padding-top: 30px;
-        padding-bottom: 30px;
+/* MEDIA QUERIES FOR STRUCTURE/LAYOUT ADJUSTMENTS           */
+
+@media (max-width: 991.98px) {
+    .project-card {
+        height: auto;
+        max-height: 220px;
+        aspect-ratio: 1 / 0.647;
     }
 
-    .carousel-inner,
-    .building-image {
-        width: 90vw;
-        height: 60vw;
-        max-width: 420px;
-        max-height: 420px;
-    }
-
-    .project-title {
-        font-size: 28px;
-    }
-
-    .project-name {
-        font-size: 36px;
-    }
-}
-
-@media (max-width: 600px) {
-
-    .carousel-inner,
-    .building-image {
-        width: 98vw;
-        height: 55vw;
-        max-width: 98vw;
-        max-height: 320px;
-    }
-
-    .project-title {
-        font-size: 1.2rem;
-    }
-
-    .project-name {
-        font-size: 1.7rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .carousel-control-prev {
-        left: -30px;
-    }
-
-    .carousel-control-next {
-        right: -30px;
-    }
-
-    .project-title {
-        font-size: 28px;
-    }
-
-    .project-name {
-        font-size: 36px;
-    }
-}
-
-@media (max-width: 900px) {
     .tasks-row {
         flex-direction: column;
         gap: 32px;
@@ -499,55 +450,61 @@
 
     .task-item {
         padding-left: 48px;
+        min-width: unset;
+        width: 100%;
     }
 
-    .task-item::before {
-        font-size: 3.2rem;
-    }
-}
-
-@media (max-width: 991.98px) {
-    .project-card {
-        height: 220px;
-    }
-
-    .projects-title {
-        font-size: 2rem;
+    .contact-image {
+        margin-top: 32px;
+        height: auto;
+        max-height: 250px;
+        aspect-ratio: 749 / 250;
     }
 }
 
 @media (max-width: 767.98px) {
     .project-card {
-        height: 140px;
-    }
-
-    .projects-title {
-        font-size: 1.3rem;
-    }
-}
-
-@media (max-width: 991.98px) {
-    .contact-heading {
-        font-size: 2.3rem;
+        height: auto;
+        max-height: 140px;
+        aspect-ratio: 1 / 0.647;
     }
 
     .contact-image {
-        height: 250px;
         margin-top: 32px;
+        height: auto;
+        max-height: 180px;
+        aspect-ratio: 749 / 180;
+    }
+
+    .carousel-inner,
+    .building-image {
+        max-width: 98%;
+        width: 100%;
+        aspect-ratio: 1 / 1.1;
+        max-height: 320px;
+    }
+
+    .about-images {
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        max-height: unset;
+        aspect-ratio: unset;
+    }
+
+    .about-img {
+        height: 150px;
+        margin-bottom: 10px;
     }
 }
 
-@media (max-width: 767.98px) {
-    .contact-heading {
-        font-size: 1.5rem;
-    }
+@media (max-width: 400px) {
 
-    .contact-image {
-        height: 180px;
-        margin-top: 32px;
-    }
-
-    .contact-form {
-        max-width: 100%;
+    /* For the smallest phones, allow button to fill space */
+    .carousel-btn-on-image {
+        width: 100%;
+        height: auto;
+        min-height: 50px;
+        font-size: 0.9rem;
     }
 }
