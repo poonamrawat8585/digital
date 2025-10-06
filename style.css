@@ -1,3 +1,7 @@
+ body {
+    overflow-x: hidden; /* THE final enforcement */
+    width: 100%; /* Ensures the containers start at the correct width */
+}
 body {
     font-family: 'TT Hoves', Arial, sans-serif;
     background: white;
